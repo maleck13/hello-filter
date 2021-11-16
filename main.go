@@ -61,6 +61,8 @@ func (ctx *httpHeaders) OnHttpRequestHeaders(numHeaders int, endOfStream bool) t
 
 	proxywasm.AddHttpRequestHeader("hello", "world")
 
+	proxywasm.LogInfo("***ADDED HEADER IN WASM PLUGIN")
+
 	hs, err := proxywasm.GetHttpRequestHeaders()
 	if err != nil {
 		proxywasm.LogCriticalf("failed to get request headers: %v", err)
